@@ -3,8 +3,8 @@ TOPDIR=$(dirname "$0")/../..
 cd $TOPDIR
 git submodule init
 git submodule update
-mkdir build && cd build
-pwd
+mkdir build
+cd build
 cmake -G "Unix Makefiles" \
   -DCMAKE_VERBOSE_MAKEFILE=ON \
   -DCMAKE_EXE_LINKER_FLAGS="-static" \
