@@ -7,7 +7,7 @@
     url = https://ghproxy.com/https://github.com/miniupnp/libnatpmp.git
     ignore = dirty
 [submodule "zstd"]
-    path = zstd
-    url = https://ghproxy.com/https://github.com/facebook/zstd.git
+	path = zstd
+	url = https://github.com/facebook/zstd.git
     ignore = dirty
     branch = v1.5.1
