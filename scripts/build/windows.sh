@@ -1,5 +1,6 @@
 #!/bin/bash
-cd ../../
+TOPDIR=$(dirname "$0")/../..
+cd $TOPDIR
 pwd
 git submodule init
 git submodule update
