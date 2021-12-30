@@ -33,6 +33,8 @@ add_definitions(-DPACKAGE_VERSION="${PACKAGE_VERSION}")
 # third-party directory
 set(THIRD_PARTY_DIR ${CMAKE_SOURCE_DIR}/thirdparty)
 
+set(ZSTD_DIR ${CMAKE_SOURCE_DIR}/zstd)
+
 # Build information
 OPTION(BUILD_SHARED_LIBS "BUILD Shared Library" OFF)
 
@@ -76,6 +78,8 @@ endif(N2N_OPTION_USE_OPENSSL)
 
 if(N2N_OPTION_USE_ZSTD)
   add_definitions(-DN2N_HAVE_ZSTD)
+  include_directories(${ZSTD_DIR}/lib)
+  include_directories(${PROJECT_BINARY_DIR}/lib_zstd)
 endif(N2N_OPTION_USE_ZSTD)
 
 if(N2N_OPTION_USE_PORTMAPPING)
@@ -166,7 +170,10 @@ if(N2N_OPTION_USE_OPENSSL)
 endif(N2N_OPTION_USE_OPENSSL)
 
 if(N2N_OPTION_USE_ZSTD)
-  target_link_libraries(n2n ${PROJECT_SOURCE_DIR}/libs/libzstd.a)
+  # target_link_libraries(n2n ${PROJECT_SOURCE_DIR}/libs/libzstd.a)
+  add_subdirectory(${ZSTD_DIR}/build/cmake/lib lib_zstd)
+  link_directories(${PROJECT_BINARY_DIR}/lib_zstd)
+  target_link_libraries(n2n libzstd-static)
 endif(N2N_OPTION_USE_ZSTD)
 
 if(N2N_OPTION_USE_PORTMAPPING)
