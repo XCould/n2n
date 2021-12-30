@@ -49,7 +49,7 @@ case "$1" in
         echo "$VER_SHORT"
         ;;
     "")
-        echo "$VER"
+        echo "$VER-Haisto"
         ;;
     *)
         usage
