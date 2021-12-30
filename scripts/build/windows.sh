@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ../../
-git submodules init
-git submodules update
+git submodule init
+git submodule update
 mkdir build && cd build
 cmake -G "Unix Makefiles" \
   -DCMAKE_VERBOSE_MAKEFILE=ON \
