@@ -164,7 +164,7 @@ if(N2N_OPTION_USE_OPENSSL)
 endif(N2N_OPTION_USE_OPENSSL)
 
 if(N2N_OPTION_USE_ZSTD)
-  target_link_libraries(n2n zstd)
+    target_link_libraries(n2n ${PROJECT_SOURCE_DIR}/libs/libzstd.a)
 endif(N2N_OPTION_USE_ZSTD)
 
 if(N2N_OPTION_USE_PORTMAPPING)
